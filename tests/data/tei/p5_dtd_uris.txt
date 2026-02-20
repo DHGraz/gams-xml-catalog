@@ -1,0 +1,21 @@
+http://www.tei-c.org/release/xml/tei/custom/schema/dtd/tei_all.dtd
+http://www.tei-c.org/release/xml/tei/custom/schema/dtd/tei_bare.dtd
+http://www.tei-c.org/release/xml/tei/custom/schema/dtd/tei_basic.dtd
+http://www.tei-c.org/release/xml/tei/custom/schema/dtd/tei_corpus.dtd
+http://www.tei-c.org/release/xml/tei/custom/schema/dtd/tei_drama.dtd
+http://www.tei-c.org/release/xml/tei/custom/schema/dtd/tei_enrich.dtd
+http://www.tei-c.org/release/xml/tei/custom/schema/dtd/tei_its.dtd
+http://www.tei-c.org/release/xml/tei/custom/schema/dtd/tei_jtei.dtd
+http://www.tei-c.org/release/xml/tei/custom/schema/dtd/tei_lite.dtd
+http://www.tei-c.org/release/xml/tei/custom/schema/dtd/tei_minimal.dtd
+http://www.tei-c.org/release/xml/tei/custom/schema/dtd/tei_ms.dtd
+http://www.tei-c.org/release/xml/tei/custom/schema/dtd/tei_odds.dtd
+http://www.tei-c.org/release/xml/tei/custom/schema/dtd/tei_simplePrint.dtd
+http://www.tei-c.org/release/xml/tei/custom/schema/dtd/tei_speech.dtd
+http://www.tei-c.org/release/xml/tei/custom/schema/dtd/tei_svg.dtd
+http://www.tei-c.org/release/xml/tei/custom/schema/dtd/tei_tite.dtd
+http://www.tei-c.org/release/xml/tei/custom/schema/dtd/tei_xinclude.dtd
+
+# These should work, but even oXygen nags about the syntax
+# http://www.tei-c.org/release/xml/tei/custom/schema/dtd/tei_customization.dtd
+# http://www.tei-c.org/release/xml/tei/custom/schema/dtd/tei_math.dtd

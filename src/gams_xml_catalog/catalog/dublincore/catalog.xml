@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE catalog PUBLIC "-//OASIS//DTD Entity Resolution XML Catalog V1.0//EN" "http://www.oasis-open.org/committees/entity/release/1.0/catalog.dtd">
+<!-- see: https://www.dublincore.org/schemas/xmls/-->
+
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+
+    <!-- always pointing to the latest version -->
+    <rewriteURI uriStartString="http://dublincore.org/schemas/xmls/qdc/" rewritePrefix="2008/"/>
+    <rewriteURI uriStartString="https://dublincore.org/schemas/xmls/qdc/" rewritePrefix="2008/"/>
+    <rewriteURI uriStartString="http://www.dublincore.org/schemas/xmls/qdc/" rewritePrefix="2008/"/>
+    <rewriteURI uriStartString="https://www.dublincore.org/schemas/xmls/qdc/" rewritePrefix="2008/"/>
+    <uri name="http://purl.org/dc/elements/1.1/" uri="2008/dc.xsd"/>
+    <uri name="http://purl.org/dc/terms/" uri="2008/dcterms.xsd"/>
+    <uri name="http://purl.org/dc/dcmitype/" uri="2008/dcmitype.xsd"/>
+    <uri name="https://purl.org/dc/elements/1.1/" uri="2008/dc.xsd"/>
+    <uri name="https://purl.org/dc/terms/" uri="2008/dcterms.xsd"/>
+    <uri name="https://purl.org/dc/dcmitype/" uri="2008/dcmitype.xsd"/>
+    
+
+    <!-- version 1.1 official uris -->
+    <rewriteURI uriStartString="http://dublincore.org/schemas/xmls/qdc/2008/02/11/"
+        rewritePrefix="2008/"/>
+    <rewriteURI uriStartString="http://dublincore.org/schemas/xmls/" rewritePrefix="xmls/"/>
+    <rewriteURI uriStartString="http://purl.org/dc/elements/1.1/"
+        rewritePrefix="http://dublincore.org/schemas/xmls/qdc/2008/02/11/"/>
+
+    <!-- version 1.1 alternative uris (just in case) -->
+    <rewriteURI uriStartString="https://dublincore.org/schemas/xmls/qdc/2008/02/11/"
+        rewritePrefix="2008/"/>
+    <rewriteURI uriStartString="http://www.dublincore.org/schemas/xmls/qdc/2008/02/11/"
+        rewritePrefix="2008/"/>
+    <rewriteURI uriStartString="https://www.dublincore.org/schemas/xmls/qdc/2008/02/11/"
+        rewritePrefix="2008/"/>
+
+
+    <!-- simple dc 2002-03-12 -->
+    <uri name="http://dublincore.org/schemas/xmls/simpledc20021212.xsd"
+        uri="2002/simpledc.xsd"/>
+    <uri name="https://dublincore.org/schemas/xmls/simpledc20021212.xsd"
+        uri="2002/simpledc.xsd"/>
+    <uri name="http://www.dublincore.org/schemas/xmls/simpledc20021212.xsd"
+        uri="2002/simpledc.xsd"/>
+    <uri name="https://www.dublincore.org/schemas/xmls/simpledc20021212.xsd" 
+        uri="2002/simpledc.xsd"/>
+
+    <!-- qualified DC XML Schemas (2003-04-02) -->
+    <rewriteURI uriStartString="http://dublincore.org/schemas/xmls/qdc/2003/04/02/"
+        rewritePrefix="2003/"/>
+    <!-- unofficial -->
+    <rewriteURI uriStartString="http://dublincore.org/schemas/xmls/qdc/2003/04/02/"
+        rewritePrefix="2003/"/>
+    <rewriteURI uriStartString="https://dublincore.org/schemas/xmls/qdc/2003/04/02/"
+        rewritePrefix="2003/"/>
+    <rewriteURI uriStartString="http://www.dublincore.org/schemas/xmls/qdc/2003/04/02/"
+        rewritePrefix="2003/"/>
+    <rewriteURI uriStartString="https://www.dublincore.org/schemas/xmls/qdc/2003/04/02/"
+        rewritePrefix="2003/"/>
+
+    <!-- qualified 2006-01-06 -->
+    <rewriteURI uriStartString="http://dublincore.org/schemas/xmls/qdc/2006/01/06/"
+        rewritePrefix="2006/"/>
+    <!-- unofficial -->
+    <rewriteURI uriStartString="http://dublincore.org/schemas/xmls/qdc/2006/01/06/"
+        rewritePrefix="2006/"/>
+    <rewriteURI uriStartString="https://dublincore.org/schemas/xmls/qdc/2006/01/06/"
+        rewritePrefix="2006/"/>
+    <rewriteURI uriStartString="http://www.dublincore.org/schemas/xmls/qdc/2006/01/06/"
+        rewritePrefix="2006/"/>
+    <rewriteURI uriStartString="https://www.dublincore.org/schemas/xmls/qdc/2006/01/06/"
+        rewritePrefix="2006/"/>
+
+</catalog>

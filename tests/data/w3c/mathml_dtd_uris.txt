@@ -1,0 +1,5 @@
+http://www.w3.org/Math/DTD/mathml3/mathml3.dtd
+http://www.w3.org/Math/DTD/mathml3/mathml2.dtd
+http://www.w3.org/Math/DTD/mathml3/mathml2-3.dtd
+http://www.w3.org/Math/DTD/mathml2/mathml2.dtd
+http://www.w3.org/Math/DTD/mathml2/xhtml-math11-f.dtd

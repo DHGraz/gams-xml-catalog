@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE catalog PUBLIC "-//OASIS//DTD Entity Resolution XML Catalog V1.0//EN" "http://www.oasis-open.org/committees/entity/release/1.0/catalog.dtd">
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+
+  <rewriteSystem systemIdStartString="-//W3C//DTD XMLSchema 200102//EN" rewritePrefix="2001"/>
+  <rewriteSystem systemIdStartString="-//W3C//DTD XSD 1.1//EN" rewritePrefix="2009/"/>
+
+  <rewriteURI uriStartString="http://www.w3.org/2001/" rewritePrefix="2001/"/>
+
+  <rewriteURI uriStartString="http://www.w3.org/TR/xmlschema-1/" rewritePrefix="2001/"/>
+  <rewriteURI uriStartString="https://www.w3.org/TR/xmlschema-1/" rewritePrefix="2001/"/>
+  <rewriteURI uriStartString="http://www.w3.org/2009/XMLSchema/" rewritePrefix="2009/"/>
+  <rewriteURI uriStartString="https://www.w3.org/2009/XMLSchema/" rewritePrefix="2009/"/>
+  <rewriteURI uriStartString="http://www.w3.org/TR/xmlschema111/" rewritePrefix="2009/"/>
+  <rewriteURI uriStartString="https://www.w3.org/TR/xmlschema111/" rewritePrefix="2009/"/>
+</catalog>

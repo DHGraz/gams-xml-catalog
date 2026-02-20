@@ -1,0 +1,29 @@
+[project]
+name = "gams-xml-catalog"
+version = "0.1.0"
+description = "A Python library which provides an XML catalog for GAMS projects."
+readme = "README.md"
+authors = [
+    { name = "Gunter Vasold", email = "gunter.vasold@uni-graz.at" }
+]
+requires-python = ">=3.9"
+dependencies = []
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://zimlab.uni-graz.at/gams5/production/gams-xml-catalog"
+Issues = "https://zimlab.uni-graz.at/gams5/production/gams-xml-catalog/-/issues"
+
+[build-system]
+requires = ["uv_build>=0.8.15,<0.9.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "lxml>=6.0.2",
+    "pytest>=9.0.2",
+]

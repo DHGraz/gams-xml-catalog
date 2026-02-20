@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE catalog PUBLIC "-//OASIS//DTD Entity Resolution XML Catalog V1.0//EN" "http://www.oasis-open.org/committees/entity/release/1.0/catalog.dtd">
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+
+  <uri name="http://www.loc.gov/mets/xlink.xsd" uri="xlink/xlink.xsd"/>
+  <system systemID="http://www.loc.gov/mets/xlink.xsd" uri="xlink/xlink.xsd"/>
+  <system systemID="xlink.xsd" uri="xlink/xlink.xsd"/>
+
+  <rewriteURI uriStartString="http://www.loc.gov/mets/" rewritePrefix="."/>
+  <rewriteURI uriStartString="https://www.loc.gov/mets/" rewritePrefix="."/>
+  <rewriteURI uriStartString="http://loc.gov/mets/" rewritePrefix="."/>
+  <rewriteURI uriStartString="https://loc.gov/mets/" rewritePrefix="."/>
+  <rewriteURI uriStartString="http://www.loc.gov/standards/mets/" rewritePrefix="."/>
+  <rewriteURI uriStartString="https://www.loc.gov/standards/mets/" rewritePrefix="."/>
+  <rewriteURI uriStartString="http://loc.gov/standards/mets/" rewritePrefix="."/>
+  <rewriteURI uriStartString="https://loc.gov/standards/mets/" rewritePrefix="."/>
+  <rewriteURI uriStartString="http://loc.gov/standards/xlink/" rewritePrefix="xlink/"/>
+  <rewriteURI uriStartString="https://loc.gov/standards/xlink/" rewritePrefix="xlink/"/>
+  <rewriteURI uriStartString="http://www.loc.gov/standards/xlink/" rewritePrefix="xlink/"/>
+  <rewriteURI uriStartString="https://www.loc.gov/standards/xlink/" rewritePrefix="xlink/"/>
+</catalog>

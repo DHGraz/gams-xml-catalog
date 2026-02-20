@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE catalog PUBLIC "-//OASIS//DTD Entity Resolution XML Catalog V1.0//EN" "http://www.oasis-open.org/committees/entity/release/1.0/catalog.dtd">
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <!-- Map web references to local TEI modules -->
+  <rewriteSystem systemIdStartString="http://www.tei-c.org/release/xml/tei/custom/schema/dtd/"
+    rewritePrefix="p5/dtd/"/>
+  <rewriteSystem systemIdStartString="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/"
+    rewritePrefix="p5/relaxng/"/>
+  <rewriteSystem systemIdStartString="http://www.tei-c.org/release/xml/tei/custom/schema/xsd/"
+    rewritePrefix="p5/xsd/"/>
+
+  <rewriteSystem systemIdStartString="https://tei-c.org/Vault/P4/xml/schema/dtd/" rewritePrefix="p4/dtd"/>
+
+  <rewriteSystem systemIdStartString="http://tei-c.org/Vault/P4/xml/schema/dtd/" rewritePrefix="p4/dtd"/> 
+</catalog>

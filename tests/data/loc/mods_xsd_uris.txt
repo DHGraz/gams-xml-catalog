@@ -1,0 +1,16 @@
+http://www.loc.gov/standards/mods/v3/mods.xsd
+http://www.loc.gov/mods/mods.xsd
+
+http://www.loc.gov/standards/mods/v3/mods-3-8.xsd
+http://www.loc.gov/standards/mods/v3/mods-3-7.xsd
+http://www.loc.gov/standards/mods/v3/mods-3-6.xsd
+http://www.loc.gov/standards/mods/v3/mods-3-5.xsd
+http://www.loc.gov/standards/mods/v3/mods-3-4.xsd
+http://www.loc.gov/standards/mods/v3/mods-3-3.xsd
+http://www.loc.gov/standards/mods/v3/mods-3-2.xsd
+http://www.loc.gov/standards/mods/v3/mods-3-1.xsd
+http://www.loc.gov/standards/mods/v3/mods-3-0.xsd
+
+
+http://www.loc.gov/standards/xlink/xlink.xsd
+# http://www.loc.gov/mods/xml.xsd no clue why this is included here

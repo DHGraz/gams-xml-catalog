@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE catalog PUBLIC "-//OASIS//DTD Entity Resolution XML Catalog V1.0//EN" "http://www.oasis-open.org/committees/entity/release/1.0/catalog.dtd">
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+                              http://www.loc.gov/standards/premis/v2/premis-v2-0.xsd'
+  <rewriteURI uriStartString="http://www.loc.gov/premis/" rewritePrefix="."/>
+  <rewriteURI uriStartString="https://www.loc.gov/premis/" rewritePrefix="."/>
+  <rewriteURI uriStartString="http://www.loc.gov/standards/premis/" rewritePrefix="."/>
+  <rewriteURI uriStartString="https://www.loc.gov/standards/premis/" rewritePrefix="."/>
+</catalog>

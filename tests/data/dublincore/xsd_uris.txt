@@ -1,0 +1,55 @@
+# the latest versions
+http://dublincore.org/schemas/xmls/qdc/dc.xsd
+http://dublincore.org/schemas/xmls/qdc/dcterms.xsd
+http://dublincore.org/schemas/xmls/qdc/dcmitype.xsd
+http://purl.org/dc/elements/1.1/
+http://purl.org/dc/terms/
+http://purl.org/dc/dcmitype/
+
+# vers. 1.1
+http://dublincore.org/schemas/xmls/qdc/2008/02/11/dc.xsd
+http://dublincore.org/schemas/xmls/qdc/2008/02/11/dcterms.xsd
+http://dublincore.org/schemas/xmls/qdc/2008/02/11/dcmitype.xsd
+http://dublincore.org/schemas/xmls/qdc/2008/02/11/simpledc.xsd
+http://dublincore.org/schemas/xmls/qdc/2008/02/11/qualifieddc.xsd
+#  vers. 1.1 alternative uris
+http://www.dublincore.org/schemas/xmls/qdc/2008/02/11/dc.xsd
+http://www.dublincore.org/schemas/xmls/qdc/2008/02/11/dcterms.xsd
+http://www.dublincore.org/schemas/xmls/qdc/2008/02/11/dcmitype.xsd
+http://www.dublincore.org/schemas/xmls/qdc/2008/02/11/simpledc.xsd
+http://www.dublincore.org/schemas/xmls/qdc/2008/02/11/qualifieddc.xsd
+
+
+# simple dc 2002-03-12
+http://dublincore.org/schemas/xmls/simpledc20021212.xsd
+http://www.dublincore.org/schemas/xmls/simpledc20021212.xsd
+
+# qualified dc 2003
+
+http://dublincore.org/schemas/xmls/qdc/2003/04/02/dc.xsd
+http://dublincore.org/schemas/xmls/qdc/2003/04/02/dcterms.xsd
+http://dublincore.org/schemas/xmls/qdc/2003/04/02/dcmitype.xsd
+http://dublincore.org/schemas/xmls/qdc/2003/04/02/simpledc.xsd
+http://dublincore.org/schemas/xmls/qdc/2003/04/02/qualifieddc.xsd
+
+# unofficial 2003
+http://www.dublincore.org/schemas/xmls/qdc/2003/04/02/dc.xsd
+http://www.dublincore.org/schemas/xmls/qdc/2003/04/02/dcterms.xsd
+http://www.dublincore.org/schemas/xmls/qdc/2003/04/02/dcmitype.xsd
+http://www.dublincore.org/schemas/xmls/qdc/2003/04/02/simpledc.xsd
+http://www.dublincore.org/schemas/xmls/qdc/2003/04/02/qualifieddc.xsd
+
+
+# 2006
+http://dublincore.org/schemas/xmls/qdc/2006/01/06/dc.xsd
+http://dublincore.org/schemas/xmls/qdc/2006/01/06/dcterms.xsd
+http://dublincore.org/schemas/xmls/qdc/2006/01/06/dcmitype.xsd
+http://dublincore.org/schemas/xmls/qdc/2006/01/06/simpledc.xsd
+http://dublincore.org/schemas/xmls/qdc/2006/01/06/qualifieddc.xsd
+
+# unoffical 2006
+http://www.dublincore.org/schemas/xmls/qdc/2006/01/06/dc.xsd
+http://www.dublincore.org/schemas/xmls/qdc/2006/01/06/dcterms.xsd
+http://www.dublincore.org/schemas/xmls/qdc/2006/01/06/dcmitype.xsd
+http://www.dublincore.org/schemas/xmls/qdc/2006/01/06/simpledc.xsd
+http://www.dublincore.org/schemas/xmls/qdc/2006/01/06/qualifieddc.xsd

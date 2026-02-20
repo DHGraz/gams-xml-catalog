@@ -1,0 +1,8 @@
+# TODO: how to test this?
+#  <rewriteSystem systemIdStartString="-//W3C//DTD XMLSchema 200102//EN" rewritePrefix="2001"/>
+#  <rewriteSystem systemIdStartString="-//W3C//DTD XSD 1.1//EN" rewritePrefix="2009/"/>
+
+http://www.w3.org/2001/XMLSchema.dtd
+http://www.w3.org/TR/xmlschema-1/XMLSchema.dtd
+http://www.w3.org/2009/XMLSchema/XMLSchema.dtd
+http://www.w3.org/TR/xmlschema111/XMLSchema.dtd

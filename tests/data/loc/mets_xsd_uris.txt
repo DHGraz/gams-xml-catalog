@@ -1,0 +1,25 @@
+http://loc.gov/standards/mets/mets2.xsd
+http://www.loc.gov/mets/mets.xsd
+http://www.loc.gov/standards/mets/version11/mets.xsd
+http://www.loc.gov/standards/mets/version110/mets.xsd
+http://www.loc.gov/standards/mets/version111/mets.xsd
+http://www.loc.gov/standards/mets/version112/mets.xsd
+http://www.loc.gov/standards/mets/version1121/mets.xsd
+http://www.loc.gov/standards/mets/version12/mets.xsd
+http://www.loc.gov/standards/mets/version13/mets.xsd
+http://www.loc.gov/standards/mets/version14/mets.xsd
+http://www.loc.gov/standards/mets/version15/mets.xsd
+http://www.loc.gov/standards/mets/version16/mets.xsd
+http://www.loc.gov/standards/mets/version17/mets.xsd
+http://www.loc.gov/standards/mets/version18/mets.xsd
+http://www.loc.gov/standards/mets/version19/mets.xsd
+http://www.loc.gov/standards/mets/version191/mets.xsd
+
+
+# for some reason. mets uses a custom xlink xsd
+http://www.loc.gov/standards/xlink/xlink.xsd
+
+# even worse: they expect to find the xlink schema in the same directory as the mets schema
+http://www.loc.gov/standards/mets/version11/xlink.xsd
+http://www.loc.gov/standards/mets/version14/xlink.xsd
+http://www.loc.gov/standards/mets/version11/mets.xsd

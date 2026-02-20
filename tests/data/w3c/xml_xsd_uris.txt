@@ -1,0 +1,13 @@
+http://www.w3.org/2001/03/xml.xsd
+http://www.w3.org/2004/10/xml.xsd
+http://www.w3.org/2005/08/xml.xsd
+http://www.w3.org/2007/08/xml.xsd
+
+http://www.w3.org/1998/xml.xsd
+http://www.w3.org/2001/xml.xsd
+http://www.w3.org/2004/xml.xsd
+http://www.w3.org/2005/xml.xsd
+http://www.w3.org/2007/xml.xsd
+
+#?
+#http://www.w3.org/XML/1998/namespace

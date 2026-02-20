@@ -1,0 +1,5 @@
+http://www.loc.gov/standards/premis/v2/premis-v2-0.xsd
+http://www.loc.gov/standards/premis/v2/premis-v2-1.xsd
+http://www.loc.gov/standards/premis/v2/premis-v2-2.xsd
+http://www.loc.gov/standards/premis/v2/premis-v2-3.xsd
+http://www.loc.gov/standards/premis/v3/premis-v3-0.xsd
