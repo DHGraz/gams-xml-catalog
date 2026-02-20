@@ -6,7 +6,7 @@ readme = "README.md"
 authors = [
     { name = "Gunter Vasold", email = "gunter.vasold@uni-graz.at" }
 ]
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 dependencies = []
 classifiers = [
     "Programming Language :: Python :: 3",
@@ -26,4 +26,5 @@ build-backend = "uv_build"
 dev = [
     "lxml>=6.0.2",
     "pytest>=9.0.2",
+    "ruff>=0.15.2",
 ]
