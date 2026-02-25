@@ -249,3 +249,12 @@ def test_resolve_w3c_mathml_dtds(uri):
     mets uris sometimes use https instead of http, so this test checks both
     """
     assert catalog_resolves(uri)
+
+@pytest.mark.parametrize(
+    "uri", read_datafile("example/example.txt", add_https=False)
+)
+def test_resolve_example_com(uri):
+    """Make sure all uris from the example dir (example.com) are resoled by the catalog.
+
+    """
+    assert catalog_resolves(uri)

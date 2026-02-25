@@ -1,0 +1,4 @@
+http://example.com/simple.sch
+http://example.com/simple_xpath2.sch
+http://example.com/simple_xslt2.sch
+http://example.com/simple_xslt3.sch

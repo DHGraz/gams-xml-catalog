@@ -4,4 +4,5 @@
   <nextCatalog catalog="loc/catalog.xml"/>
   <nextCatalog catalog="tei/catalog.xml"/>
   <nextCatalog catalog="w3c/catalog.xml"/>
+  <nextCatalog catalog="example/catalog.xml"/>
 </catalog>
