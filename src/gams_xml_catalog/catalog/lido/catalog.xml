@@ -1,9 +1,13 @@
 <?xml version="1.0"?>
 <!DOCTYPE catalog PUBLIC "-//OASIS//DTD Entity Resolution XML Catalog V1.0//EN" "http://www.oasis-open.org/committees/entity/release/1.0/catalog.dtd">
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
-    <uri name="http://www.lido-schema.org/schema/v1.0/lido-v1.0.xsd" uri="lido-v1.0.xsd"/>
-    <uri name="http://www.lido-schema.org/schema/v1.1/lido-v1.1.xsd" uri="lido-v1.1.xsd"/>
-
-    <system systemId="http://www.lido-schema.org/schema/v1.0/lido-v1.0.xsd" uri="lido-v1.0.xsd"/>
-    <system systemId="http://www.lido-schema.org/schema/v1.1/lido-v1.1.xsd" uri="lido-v1.1.xsd"/>
+    <uri name="http://www.lido-schema.org/schema/v1.0/lido-v1.0.xsd" uri="lido-v1-0.xsd"/>
+    <uri name="http://www.lido-schema.org/schema/v1.1/lido-v1.1.xsd" uri="lido-v1-1.xsd"/>
+    <uri name="https://www.lido-schema.org/schema/v1.0/lido-v1.0.xsd" uri="lido-v1-0.xsd"/>
+    <uri name="https://www.lido-schema.org/schema/v1.1/lido-v1.1.xsd" uri="lido-v1-1.xsd"/>
+               
+    <system systemId="http://www.lido-schema.org/schema/v1.0/lido-v1.0.xsd" uri="lido-v1-0.xsd"/>
+    <system systemId="http://www.lido-schema.org/schema/v1.1/lido-v1.1.xsd" uri="lido-v1-1.xsd"/>
+    <system systemId="https://www.lido-schema.org/schema/v1.0/lido-v1.0.xsd" uri="lido-v1-0.xsd"/>
+    <system systemId="https://www.lido-schema.org/schema/v1.1/lido-v1.1.xsd" uri="lido-v1-1.xsd"/>
 </catalog>

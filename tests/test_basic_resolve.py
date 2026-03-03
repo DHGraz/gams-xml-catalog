@@ -110,6 +110,15 @@ def test_resolve_dublincore_xsds(uri):
     """
     assert catalog_resolves(uri)
 
+@pytest.mark.parametrize(
+    "uri", read_datafile("lido/lido_uris.txt", add_https=True)
+)
+def test_resolve_lido_xsds(uri):
+    """Make sure all uris from lido_uris.txt are resoled by the catalog.
+
+    lido uris sometimes use https instead of http, so this test checks both
+    """
+    assert catalog_resolves(uri)
 
 @pytest.mark.parametrize("uri", read_datafile("loc/mets_xsd_uris.txt", add_https=True))
 def test_resolve_loc_mets_xsds(uri):
