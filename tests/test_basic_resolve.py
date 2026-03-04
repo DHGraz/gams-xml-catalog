@@ -267,3 +267,12 @@ def test_resolve_example_com(uri):
 
     """
     assert catalog_resolves(uri)
+
+@pytest.mark.parametrize(
+    "uri", read_datafile("opengis/opengis_uris.txt", add_https=False)
+)
+def test_resolve_opengis_uris(uri):
+    """Make sure all uris from the opengis dir are resoled by the catalog.
+
+    """
+    assert catalog_resolves(uri)

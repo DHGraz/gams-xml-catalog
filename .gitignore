@@ -292,3 +292,4 @@ pyrightconfig.json
 .vscode/settings.json
 uv.lock
 .python-version
+.DS_Store
