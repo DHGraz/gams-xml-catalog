@@ -2,6 +2,48 @@
 <!DOCTYPE catalog PUBLIC "-//OASIS//DTD Entity Resolution XML Catalog V1.0//EN" "http://www.oasis-open.org/committees/entity/release/1.0/catalog.dtd">
 
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+<!--- ================= GML ====================== -->
+    <rewriteURI uriStartString="http://www.opengis.net/gml/3.3.1/" rewritePrefix="gml/3.3.1/"/>
+    <rewriteSystem systemIdStartString="http://www.opengis.net/gml/3.3.1/" rewritePrefix="gml/3.3.1/"/>
+
+    <rewriteURI uriStartString="http://www.opengis.net/gml/3.2.1/" rewritePrefix="gml/3.2.1/"/>
+    <rewriteSystem systemIdStartString="http://www.opengis.net/gml/3.2.1/" rewritePrefix="gml/3.2.1/"/>
+
+
+    <rewriteURI uriStartString="http://www.opengis.net/gml/3.1.1/" rewritePrefix="gml/3.1.1/"/>
+    <rewriteSystem systemIdStartString="http://www.opengis.net/gml/3.1.1/" rewritePrefix="gml/3.1.1/"/>
+
+    <!-- lido again ...-->
+    <rewriteURI uriStartString="http://schemas.opengis.net/gml/3.1.1/" rewritePrefix="gml/3.1.1/"/>
+    <rewriteSystem systemIdStartString="http://schemas.opengis.net/gml/3.1.1/" rewritePrefix="gml/3.1.1/"/>
+
+    <rewriteURI uriStartString="http://schemas.opengis.net/gml/3.2.1/" rewritePrefix="gml/3.2.1/"/>
+    <rewriteSystem systemIdStartString="http://schemas.opengis.net/gml/3.2.1/" rewritePrefix="gml/3.2.1/"/>
+
+    <rewriteURI uriStartString="http://schemas.opengis.net/gml/3.3/" rewritePrefix="gml/3.3.1/"/>
+    <rewriteSystem systemIdStartString="http://schemas.opengis.net/gml/3.3/" rewritePrefix="gml/3.3.1/"/>
+
+    <!-- default version -->
     <rewriteURI uriStartString="http://www.opengis.net/gml/" rewritePrefix="gml/3.3.1/"/>
     <rewriteSystem systemIdStartString="http://www.opengis.net/gml/" rewritePrefix="gml/3.3.1/"/>
+
+
+
+<!-- ============== ISO ============================= -->    
+
+    <rewriteURI uriStartString="http://www.opengis.net/iso/" rewritePrefix="iso/"/>
+    <rewriteSystem systemIdStartString="http://www.opengis.net/iso/" rewritePrefix="iso/"/>
+
+    <rewriteURI uriStartString="http://schemas.opengis.net/iso/" rewritePrefix="iso/"/>
+    <rewriteSystem systemIdStartString="http://schemas.opengis.net/iso/" rewritePrefix="iso/"/>
+
+
+<!-- ============== XMLINK ============================= -->    
+
+    <rewriteURI uriStartString="http://www.opengis.net/xlink/" rewritePrefix="xlink/"/>
+    <rewriteSystem systemIdStartString="http://www.opengis.net/xlink/" rewritePrefix="xlink/"/>
+
+    <rewriteURI uriStartString="http://schemas.opengis.net/xlink/" rewritePrefix="xlink/"/>
+    <rewriteSystem systemIdStartString="http://schemas.opengis.net/xlink/" rewritePrefix="xlink/"/>
+
 </catalog>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE catalog PUBLIC "-//OASIS//DTD Entity Resolution XML Catalog V1.0//EN" "http://www.oasis-open.org/committees/entity/release/1.0/catalog.dtd">
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+
+    <rewriteURI uriStartString="https://www.isotc211.org/2005/gco/" rewritePrefix="2005/gco/"/>
+    <rewriteSystem systemIdStartString="https://www.isotc211.org/2005/gco/" rewritePrefix="2005/gco/"/>
+
+    <rewriteURI uriStartString="https://schemas.isotc211.org/19139/-/gco/1.0/" rewritePrefix="2005/gco/"/>
+    <rewriteSystem systemIdStartString="https://schemas.isotc211.org/19139/-/gco/1.0/" rewritePrefix="2005/gco/"/>
+
+    <rewriteURI uriStartString="https://schemas.isotc211.org/19139/-/gmd/1.0/" rewritePrefix="2005/gmd/"/>
+    <rewriteSystem systemIdStartString="https://schemas.isotc211.org/19139/-/gmd/1.0/" rewritePrefix="2005/gmd/"/>
+
+    <rewriteURI uriStartString="https://schemas.isotc211.org/19139/-/gml/1.0/" rewritePrefix="2005/gml/"/>
+    <rewriteSystem systemIdStartString="https://schemas.isotc211.org/19139/-/gml/1.0/" rewritePrefix="2005/gml/"/>
+
+    <rewriteURI uriStartString="https://schemas.isotc211.org/19139/-/gsr/1.0/" rewritePrefix="2005/gsr/"/>
+    <rewriteSystem systemIdStartString="https://schemas.isotc211.org/19139/-/gsr/1.0/" rewritePrefix="2005/gsr/"/>
+
+    <rewriteURI uriStartString="https://schemas.isotc211.org/19139/-/gss/1.0/" rewritePrefix="2005/gss/"/>
+    <rewriteSystem systemIdStartString="https://schemas.isotc211.org/19139/-/gss/1.0/" rewritePrefix="2005/gss/"/>
+
+    <rewriteURI uriStartString="https://schemas.isotc211.org/19139/-/gts/1.0/" rewritePrefix="2005/gts/"/>
+    <rewriteSystem systemIdStartString="https://schemas.isotc211.org/19139/-/gts/1.0/" rewritePrefix="2005/gts/"/>
+
+    <rewriteURI uriStartString="https://schemas.isotc211.org/19139/-/xlink/1.0/" rewritePrefix="2005/xlink/"/>
+    <rewriteSystem systemIdStartString="https://schemas.isotc211.org/19139/-/xlink/1.0/" rewritePrefix="2005/xlink/"/>
+
+</catalog>

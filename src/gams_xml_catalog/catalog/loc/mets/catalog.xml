@@ -3,8 +3,8 @@
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
 
   <uri name="http://www.loc.gov/mets/xlink.xsd" uri="xlink/xlink.xsd"/>
-  <system systemID="http://www.loc.gov/mets/xlink.xsd" uri="xlink/xlink.xsd"/>
-  <system systemID="xlink.xsd" uri="xlink/xlink.xsd"/>
+  <system systemId="http://www.loc.gov/mets/xlink.xsd" uri="xlink/xlink.xsd"/>
+  <system systemId="xlink.xsd" uri="xlink/xlink.xsd"/>
 
   <rewriteURI uriStartString="http://www.loc.gov/mets/" rewritePrefix="."/>
   <rewriteURI uriStartString="https://www.loc.gov/mets/" rewritePrefix="."/>
