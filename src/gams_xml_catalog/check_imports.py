@@ -31,7 +31,7 @@ def fetch_xsd(uri: str) -> bytes:
     return data
 
 
-def parse_imports(xsd_bytes: bytes, base_uri: str):
+def parse_imports(xsd_bytes: bytes, base_uri: str, imports_only: bool, includes_only: bool):
     """
     Parse the imports from the XSD bytes to a list of imports.
 
@@ -41,7 +41,14 @@ def parse_imports(xsd_bytes: bytes, base_uri: str):
     ns_xs = {"xs": "http://www.w3.org/2001/XMLSchema"}
     root = ET.fromstring(xsd_bytes)
     imports = []
-    for im in root.findall(".//xs:import", ns_xs):
+    nodes_to_check = []
+    if not includes_only:
+        print("Parsing imports...")
+        nodes_to_check.extend(list(root.findall(".//xs:import", ns_xs)))
+    if not imports_only:
+        print("Parsing includes...")
+        nodes_to_check.extend(list(root.findall(".//xs:include", ns_xs)))
+    for im in nodes_to_check:
         ns_ = im.attrib.get("namespace", "").strip()
         loc_ = im.attrib.get("schemaLocation")
         if not loc_:
@@ -53,7 +60,7 @@ def parse_imports(xsd_bytes: bytes, base_uri: str):
     return imports
 
 
-def build_import_graph(start_uri: str):
+def build_import_graph(start_uri: str, imports_only=False, includes_only=False):
     """
     Recursively builds the import graph starting from 'start_uri'.
     Graph: Dict[uri, List[(namespace, schemaLocation_uri)]]
@@ -64,7 +71,7 @@ def build_import_graph(start_uri: str):
     def _rec(uri):
         if uri in visited:
             print(
-                "Detected cyclic import: {uri} has already been visited. "
+                f"Detected cyclic import: {uri} has already been visited. "
                 "Skipping further processing of this node.",
                 file=sys.stderr,
             )
@@ -77,7 +84,7 @@ def build_import_graph(start_uri: str):
             graph[uri] = []
             return
 
-        imports = parse_imports(data, uri)
+        imports = parse_imports(data, uri, imports_only, includes_only)
         graph[uri] = imports
         for _, child_uri in imports:
             _rec(child_uri)
@@ -168,10 +175,10 @@ def find_namespace_conflicts_with_sources(graph):
     return {ns: locs for ns, locs in ns_map.items() if len(locs) > 1}
 
 
-def main(start_uri):
+def main(start_uri, imports_only=False, includes_only=False):
     "Run the checker."
     print(f"Creating the import graph starting from {start_uri} ...")
-    G = build_import_graph(start_uri)
+    G = build_import_graph(start_uri, imports_only, includes_only)
 
     print("\nGraph (per source → list of imports):")
     for src, imps in G.items():
@@ -216,8 +223,10 @@ def cli():
         "start_uri",
         help="The URI of the starting XSD schema (can be a local file path or an HTTP URL).",
     )
-    args = parser.parse_args()
-    main(args.start_uri)
+    parser.add_argument("--imports-only", action="store_true", help="Ignore includes.")
+    parser.add_argument("--includes-only", action="store_true", help="Ignore imports.")
+    args = parser.parse_args() 
+    main(args.start_uri, args.imports_only, args.includes_only)
 
 
 if __name__ == "__main__":
