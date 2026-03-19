@@ -1,6 +1,6 @@
 [project]
 name = "gams-xml-catalog"
-version = "0.3.0"
+version = "0.4.0"
 description = "A Python library which provides an XML catalog for GAMS projects."
 readme = "README.md"
 authors = [
@@ -31,3 +31,6 @@ dev = [
     "pytest>=9.0.2",
     "ruff>=0.15.2",
 ]
+
+[project.scripts]  
+check_imports = "gams_xml_catalog.check_imports:cli"  

@@ -16,16 +16,6 @@ from urllib.parse import urljoin
 import requests
 
 
-def parse_args():
-    """Parse command-line arguments."""
-    parser = argparse.ArgumentParser(description="Analyze XSD imports and includes.")
-    parser.add_argument(
-        "start_uri",
-        help="The URI of the starting XSD schema (can be a local file path or an HTTP URL).",
-    )
-    return parser.parse_args()
-
-
 def fetch_xsd(uri: str) -> bytes:
     """Read the XSD content from a URI or a local file.
 
@@ -178,10 +168,10 @@ def find_namespace_conflicts_with_sources(graph):
     return {ns: locs for ns, locs in ns_map.items() if len(locs) > 1}
 
 
-if __name__ == "__main__":
-    args = parse_args()
-    print(f"Creating the import graph starting from {args.start_uri} ...")
-    G = build_import_graph(args.start_uri)
+def main(start_uri):
+    "Run the checker."
+    print(f"Creating the import graph starting from {start_uri} ...")
+    G = build_import_graph(start_uri)
 
     print("\nGraph (per source → list of imports):")
     for src, imps in G.items():
@@ -190,7 +180,7 @@ if __name__ == "__main__":
             print(f"    ↳ namespace={ns!r}, location={loc}")
 
     print("\nAll reachable paths:")
-    all_paths = collect_paths(G, args.start_uri)
+    all_paths = collect_paths(G, start_uri)
     for target, pls in all_paths.items():
         for p in pls:
             print("  " + " → ".join(p))
@@ -217,3 +207,18 @@ if __name__ == "__main__":
     else:
         for cyc in cycles:
             print("  " + " → ".join(cyc))
+
+
+def cli():
+    """Command-line interface."""
+    parser = argparse.ArgumentParser(description="Analyze XSD imports and includes.")
+    parser.add_argument(
+        "start_uri",
+        help="The URI of the starting XSD schema (can be a local file path or an HTTP URL).",
+    )
+    args = parser.parse_args()
+    main(args.start_uri)
+
+
+if __name__ == "__main__":
+    cli()
