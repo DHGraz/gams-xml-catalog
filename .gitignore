@@ -293,3 +293,5 @@ pyrightconfig.json
 uv.lock
 .python-version
 .DS_Store
+.*swp
+gams-xsds.tgz
