@@ -73,6 +73,8 @@ def catalog_resolves_fixture() -> bool:
     return resolves
 
 
+
+
 def read_datafile(filename: str, add_https: bool = False) -> Generator[str, None, None]:
     """Read a file from data dir and yield each line.
 

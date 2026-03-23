@@ -8,10 +8,12 @@
 
   <uri name="http://www.w3.org/1998/xml.xsd" uri="2007/xml.xsd"/>
   <uri name="http://www.w3.org/2001/xml.xsd" uri="2001/xml.xsd"/>
+  <system  systemId="http://www.w3.org/2001/xml.xsd"  uri="2001/xml.xsd"/>  
   <uri name="http://www.w3.org/2004/xml.xsd" uri="2004/xml.xsd"/>
   <uri name="http://www.w3.org/2005/xml.xsd" uri="2005/xml.xsd"/>
   <uri name="http://www.w3.org/2007/xml.xsd" uri="2007/xml.xsd"/>
 
   <!-- <uri name="http://www.w3.org/XML/1998/namespace" uri="1998/xml.xsd"/> -->
+
 
 </catalog>

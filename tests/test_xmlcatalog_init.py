@@ -7,6 +7,7 @@ to include the root catalog file of gams_xml_catalog.
 import os
 
 import gams_xml_catalog as xmlcatalog
+xmlcatalog.activate_catalog(debug=True)  # activate the catalog for the tests
 
 
 def test_activate_catalog():

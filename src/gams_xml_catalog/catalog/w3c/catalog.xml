@@ -7,5 +7,4 @@
     <nextCatalog catalog="xml/catalog.xml"/>
     <nextCatalog catalog="xmlschema/catalog.xml"/>
     <nextCatalog catalog="math/catalog.xml"/>
-
 </catalog>
