@@ -1,4 +1,12 @@
-"""Some xsds import other schemas via <xs:include schemaLocation="""
+"""Tests if alle imported an included files can be resolved.
+
+Some xsds import other schemas via 
+
+<xs:include schemaLocation=
+or <xs:import schemaLocation=...>. 
+
+This test checks if all schemas contained in the catalog can be loaded.
+"""
 
 import os
 from pathlib import Path
