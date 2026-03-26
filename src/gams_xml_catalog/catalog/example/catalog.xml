@@ -5,4 +5,7 @@
 
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
     <rewriteURI uriStartString="http://example.com/" rewritePrefix="."/>
+    <rewriteURI uriStartString="https://example.com/" rewritePrefix="."/>
+    <rewriteURI uriStartString="http://example.org/" rewritePrefix="."/>
+    <rewriteURI uriStartString="https://example.org/" rewritePrefix="."/>
 </catalog>
