@@ -13,7 +13,9 @@ Use `catalog.catalog_file` to get the path to the catalog file.
 from pathlib import Path
 import os
 
-
+def get_catalog_path() -> Path:
+    """Get the path to the catalog file."""
+    return Path(__file__).parent / "catalog" / "catalog.xml"
 
 def add_catalog_to_env(cat_file: Path|str) -> None:
     """Set the XML Catalog to the environment variable XML_CATALOG_FILES."""
@@ -24,7 +26,7 @@ def add_catalog_to_env(cat_file: Path|str) -> None:
 
 def activate_catalog(debug=False) -> None:
     """Activate the catalog by adding it to the environment variable XML_CATALOG_FILES."""
-    catalog_file = Path(__file__).parent / "catalog" / "catalog.xml"
+    catalog_file = get_catalog_path()
     add_catalog_to_env(catalog_file)
     if debug:
         os.environ["XML_CATALOG_DEBUG"] = "1"
