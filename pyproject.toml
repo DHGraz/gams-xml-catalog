@@ -1,6 +1,6 @@
 [project]
 name = "gams-xml-catalog"
-version = "0.5.3"
+version = "0.6.0"
 description = "A Python library which provides an XML catalog for GAMS projects."
 readme = "README.md"
 authors = [
