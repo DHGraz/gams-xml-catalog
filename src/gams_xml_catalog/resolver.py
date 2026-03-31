@@ -14,9 +14,8 @@ across macOS, Linux, Windows.
 
 from pathlib import Path
 from xml.etree import ElementTree as ET
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional
 from dataclasses import dataclass
-from functools import lru_cache
 
 
 @dataclass(frozen=True)
