@@ -51,6 +51,13 @@ This approach is useful for:
 - Pre-resolving URIs for tools without XML Catalog support
 - Building schema dependency graphs without triggering parse errors
 
+## Contributing
+
+The Github repository is ment to be a read only mirror of the work repository
+hosted on our institutional private Github server. You can use the bug tracker
+on Github, but everything else should happen in the Zimlab Github repo.
+
+
 ## License
 
 The package code is distributed under the MIT license (see `LICENSE` for details). The XML schemas and resources included in the catalog are primarily in the public domain. For some resources, explicit licensing information was not available.
