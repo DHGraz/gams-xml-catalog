@@ -17,8 +17,11 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://zimlab.uni-graz.at/gams5/production/gams-xml-catalog"
-Issues = "https://zimlab.uni-graz.at/gams5/production/gams-xml-catalog/-/issues"
+Homepage = "https://github.com/DHGraz/gams-xml-catalog"
+# Documentation = "https://readthedocs.org"
+Repository = "https://github.com/DHGraz/gams-xml-catalog"
+Issues = "https://github.com/DHGraz/gams-xml-catalog/issues"
+#Changelog = "https://github.com/DHGraz/gams-gams_xml_catalog/blob/main/CHANGELOG.md"
 
 Homepage = "https://github.com/DHGraz/gams-xml-catalog"
 # Documentation = "https://readthedocs.org"
