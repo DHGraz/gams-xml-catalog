@@ -1,6 +1,6 @@
 [project]
 name = "gams-xml-catalog"
-version = "0.6.2"
+version = "0.6.3"
 description = "Python package providing schema files commonly needed in GAMS projects, along with utilities to interact with the catalog."
 readme = "README.md"
 authors = [
@@ -23,11 +23,6 @@ Repository = "https://github.com/DHGraz/gams-xml-catalog"
 Issues = "https://github.com/DHGraz/gams-xml-catalog/issues"
 #Changelog = "https://github.com/DHGraz/gams-gams_xml_catalog/blob/main/CHANGELOG.md"
 
-Homepage = "https://github.com/DHGraz/gams-xml-catalog"
-# Documentation = "https://readthedocs.org"
-Repository = "https://github.com/DHGraz/gams-xml-catalog"
-Issues = "https://github.com/DHGraz/gams-xml-catalog/issues"
-#Changelog = "https://github.com/DHGraz/gams-gams_xml_catalog/blob/main/CHANGELOG.md"
 
 [build-system]
 requires = ["uv_build>=0.8.15,<0.9.0"]
