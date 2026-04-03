@@ -1,7 +1,7 @@
 [project]
 name = "gams-xml-catalog"
-version = "0.6.1"
-description = "A Python library which provides an XML catalog for GAMS projects."
+version = "0.6.2"
+description = "Python package providing schema files commonly needed in GAMS projects, along with utilities to interact with the catalog."
 readme = "README.md"
 authors = [
     { name = "Gunter Vasold", email = "gunter.vasold@uni-graz.at" }
@@ -19,6 +19,12 @@ classifiers = [
 [project.urls]
 Homepage = "https://zimlab.uni-graz.at/gams5/production/gams-xml-catalog"
 Issues = "https://zimlab.uni-graz.at/gams5/production/gams-xml-catalog/-/issues"
+
+Homepage = "https://github.com/DHGraz/gams-xml-catalog"
+# Documentation = "https://readthedocs.org"
+Repository = "https://github.com/DHGraz/gams-xml-catalog"
+Issues = "https://github.com/DHGraz/gams-xml-catalog/issues"
+#Changelog = "https://github.com/DHGraz/gams-gams_xml_catalog/blob/main/CHANGELOG.md"
 
 [build-system]
 requires = ["uv_build>=0.8.15,<0.9.0"]

@@ -1,22 +1,14 @@
 # gams-xml-catalog
 
-A Python library which provides an XML catalog for GAMS projects.
+A Python package that provides an XML catalog containing schema files commonly needed in GAMS projects.
 
-Since lxml version 6 upgraded the lxml2 library, fetching resources from 
-the internet is now disallowed by default. 
+Starting with lxml version 6, the underlying libxml2 library disables fetching resources from the internet by default for security reasons. This library solves that problem by providing local copies of frequently used XML schemas and resources, making them accessible through the standard XML Catalog mechanism (https://xmlcatalogs.org/).
 
-To keep things working, we created this library, which provides local copies of
-some ressources frequently used in GAMS projects. These resources a made
-accessible via the standard XML Catalog mechanism (https://xmlcatalogs.org/).
-
-Additionally it provides a  resolve_uri_to_path function, which returns the local
-path for a catalog resource. For most cases using the default catalog mechanism
-should be preferred (this is to use the gams_xml_catalog.activate_catalog() function 
-an rely on the catalog resolving provided by tools like lxml or saxonche).
+Additionally, it provides a `resolve_uri_to_path()` function to retrieve the local file path for any catalog resource. In most cases, using the default catalog mechanism is preferred—simply call `gams_xml_catalog.activate_catalog()` and let tools like lxml or saxonche handle URI resolution automatically.
 
 ## Installation
 
-The library can be installed using pip:
+Install the package from PyPI using pip:
 
 ```
 pip install gams-xml-catalog
@@ -24,51 +16,42 @@ pip install gams-xml-catalog
 
 ## Usage
 
-To use the catalog in your python code all you have to do is to import 
-the library and activate it:
+To use the catalog, simply import and activate it:
 
 ```python
 import gams_xml_catalog
-gams_xml_catalog_activate()
+gams_xml_catalog.activate_catalog()
 ```
 
-This will temporarily add the Path to the catalog to the environment variable
-`XML_CATALOG_FILES`, so that lxml will use the locally 
-installed copies when they are requested via internet URIs.
-As XML catalogs are not restricted to libxml2, this will also work for
-other XML-libraries and programs as long as they have support for XML Catalogs.
+This temporarily adds the catalog path to the `XML_CATALOG_FILES` environment variable, enabling lxml and other XML-aware tools to use local copies instead of fetching resources from the internet. Any tool with XML Catalog support will automatically benefit from this setup.
 
 ### Direct URI to Path Resolution
 
-For non-XML file types (RelaxNG Compact, Schematron, etc.) or when you need to resolve
-a URI to a local file path without triggering XML parsing, use the `resolve_uri_to_path()` function:
+For non-XML formats (such as RelaxNG Compact) or when you need to resolve URIs without triggering XML parsing, use the `resolve_uri_to_path()` function:
 
 ```python
 import gams_xml_catalog 
 
-# Resolve a RelaxNG Compact file (no XML parsing required)
+# Resolve a RelaxNG Compact file (no XML parsing)
 path = gams_xml_catalog.resolve_uri_to_path("http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rnc")
-print(f"Local file: {path}")  
+print(f"Local file: {path}")
 # Output: /path/to/catalog/tei/p5/relaxng/tei_all.rnc
 
-# Alternatively, for advanced use cases, create a resolver instance:
+# For advanced use cases, create a CatalogResolver instance:
 from gams_xml_catalog import CatalogResolver, get_catalog_path
 
 resolver = CatalogResolver(get_catalog_path())
 path = resolver.resolve("http://purl.org/dc/elements/1.1/")  # auto-detect URI or system ID
-path = resolver.resolve_uri("http://www.w3.org/1999/xlink")  # explicit URI resolution
-path = resolver.resolve_system("http://www.tei-c.org/release/xml/tei/custom/schema/xsd/tei_all.xsd")  # system ID
+path = resolver.resolve_uri("http://www.w3.org/1999/xlink")  # resolve as URI
+path = resolver.resolve_system("http://www.tei-c.org/release/xml/tei/custom/schema/xsd/tei_all.xsd")  # resolve as system ID
 ```
 
-This is especially useful when:
-- Processing RelaxNG Compact (`.rnc`) or other Compact syntax formats
-- Pre-resolving URIs before passing to tools that don't support XML catalogs
-- Building dependency graphs across schemas without triggering parsing errors
+This approach is useful for:
+- Processing non-XML formats like RelaxNG Compact (`.rnc`)
+- Pre-resolving URIs for tools without XML Catalog support
+- Building schema dependency graphs without triggering parse errors
 
 ## License
 
-The code of this library is distributed under the MIT license. See `LICENSE`
-for details. The XML resources (schemas) included in the catalog are 
-mostly in the public domain. For some resources I could not find any 
-licensing information.
+The package code is distributed under the MIT license (see `LICENSE` for details). The XML schemas and resources included in the catalog are primarily in the public domain. For some resources, explicit licensing information was not available.
 
