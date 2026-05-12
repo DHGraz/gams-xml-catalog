@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <nextCatalog catalog="datacite/catalog.xml" />
   <nextCatalog catalog="dublincore/catalog.xml"/>
   <nextCatalog catalog="europeana/catalog.xml"/>
   <nextCatalog catalog="example/catalog.xml"/>

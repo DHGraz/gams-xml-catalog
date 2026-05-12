@@ -26,7 +26,7 @@ xmlcatalog.activate_catalog(debug=True)  # activate the catalog for the tests
         "http://www.loc.gov/premis/v3/premis-v3-0.xsd",
         "http://www.opengis.net/gml/3.2.1/gml.xsd",
         "http://www.opengis.net/gml/3.1.1/base/gml.xsd",
-
+        "https://schema.datacite.org/meta/kernel-4/metadata.xsd",
     ]
 )
 def test_create_xmlschema_objects(schema_uri):

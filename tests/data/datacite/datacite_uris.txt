@@ -1,0 +1,12 @@
+https://schema.datacite.org/meta/kernel-4/metadata.xsd
+https://schema.datacite.org/meta/kernel-4/include/xml.xsd
+https://schema.datacite.org/meta/kernel-4/include/datacite-titleType-v4.xsd              
+https://schema.datacite.org/meta/kernel-4/include/datacite-contributorType-v4.xsd
+https://schema.datacite.org/meta/kernel-4/include/datacite-dateType-v4.xsd
+https://schema.datacite.org/meta/kernel-4/include/datacite-resourceType-v4.xsd
+https://schema.datacite.org/meta/kernel-4/include/datacite-relationType-v4.xsd
+https://schema.datacite.org/meta/kernel-4/include/datacite-relatedIdentifierType-v4.xsd
+https://schema.datacite.org/meta/kernel-4/include/datacite-funderIdentifierType-v4.xsd
+https://schema.datacite.org/meta/kernel-4/include/datacite-descriptionType-v4.xsd
+https://schema.datacite.org/meta/kernel-4/include/datacite-nameType-v4.xsd
+https://schema.datacite.org/meta/kernel-4/include/datacite-numberType-v4.xsd    

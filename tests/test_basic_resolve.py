@@ -203,10 +203,9 @@ def test_resolve_opengis_uris(uri, catalog_resolves):
     assert catalog_resolves(uri)
 
 @pytest.mark.parametrize(
-    "uri", read_datafile("europeana/edm_uris.txt", add_https=True)
+    "uri", read_datafile("datacite/datacite_uris.txt", add_https=True)
 )
-def test_resolve_europeana_edm_uris(uri, catalog_resolves):
-    """Make sure all uris from the europeana/edm dir are resoled by the catalog.
-
+def test_resolve_datacite_uris(uri, catalog_resolves):
+    """Make sure all uris from the datacite dir are resoled by the catalog.
     """
     assert catalog_resolves(uri)
