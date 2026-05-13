@@ -1,56 +1,119 @@
-variables:
-  UV_VERSION: 0.10.4
-  PYTHON_BASE_VERSION: 3.12
-  BASE_LAYER: trixie-slim
-
 stages:
   - test
   - lint
+  - tag
+  - publish
 
+variables:
+  UV_CACHE_DIR: "$CI_PROJECT_DIR/.uv-cache"
 
-# A hidden job template that can be used by different Python versions
-.test-template:
-  stage: test
-  image: ghcr.io/astral-sh/uv:$UV_VERSION-python$PYTHON_BASE_VERSION-$BASE_LAYER
-  script:
-    - echo "uv environment version"
-    - uv --version
-    - echo "Pinning ${PYTHON_VERSION}"
-    - uv python pin ${PYTHON_VERSION}
-    - uv sync
-    - echo "Using python version:"
-    - python --version
-    - echo "Running tests with uv"
-    - uv run pytest tests
+cache:
+  key:
+    files:
+      - uv.lock
+  paths:
+    - .uv-cache
 
+# Common initialization for all jobs
+default:
+  #image: ghcr.io/astral-sh/uv:debian-slim
+  before_script:
+    - uv python install $PYTHON_VERSION
 
-test-py_3.11:
-  extends: .test-template
-  variables:
-    PYTHON_VERSION: "3.11"
-
-test-py_3.12:
-  extends: .test-template
-  variables:
-    PYTHON_VERSION: "3.12"    
-    
-test-py_3.13:
-  extends: .test-template
-  variables:
-    PYTHON_VERSION: "3.13"    
-
-
-lint:
+# Linting (Ruff normally only needs one python version)
+lint-ruff:
   stage: lint
-  image: ghcr.io/astral-sh/uv:$UV_VERSION-python$PYTHON_BASE_VERSION-$BASE_LAYER  
+  variables:
+    PYTHON_VERSION: "3.12"
+  script:
+    - uv run ruff check src
+
+# Testing with matrix for 3.11 to 3.13
+pytest:
+  stage: test
+  parallel:
+    matrix:
+      - PYTHON_VERSION: ["3.11", "3.12", "3.13"]
+  script:
+    - uv run --python $PYTHON_VERSION pytest
+
+
+
+# Nightly matrix: force fresh environments and dependency upgrades
+nightly-pytest:
+  stage: test
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: always
+    - when: never
+  parallel:
+    matrix:
+      - PYTHON_VERSION: ["3.11", "3.12", "3.13"]
   script:
     - echo "uv environment version"
     - uv --version
+    - echo "Forcing fresh install and upgraded dependencies"
+    - rm -rf .venv
+    - uv cache clean
+    - uv sync --python $PYTHON_VERSION --upgrade
     - echo "Using python version:"
-    - python --version
-    - echo "Running uv check with ruff"
-    - uv run ruff check src
+    - uv run --python $PYTHON_VERSION python --version
+    - echo "Running tests with uv"
+    - uv run --python $PYTHON_VERSION pytest tests
+
+
 
 .rules:
   - if: $CI_COMMIT_REF_NAME == "main" || $CI_COMMIT_REF_NAME == "develop"
     when: always
+
+# Reads the version from pyproject.toml and creates a git tag if it does not
+# already exist. Runs only on pushes to main (not on scheduled pipelines).
+auto-tag:
+  stage: tag
+  image:
+    name: alpine/git:latest
+    entrypoint: [""]
+  before_script: []
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main" && $CI_PIPELINE_SOURCE != "schedule"
+      when: always
+    - when: never
+  script:
+    - VERSION=$(awk -F ' = ' '/^\[project\]/{in_project=1; next} /^\[/{in_project=0} in_project && /^version = / {gsub(/"/, "", $2); print $2; exit}' pyproject.toml)
+    - TAG="v${VERSION}"
+    - echo "Detected version ${TAG}"
+    - |
+      if git ls-remote --tags origin "refs/tags/${TAG}" | grep -q "${TAG}"; then
+        echo "Tag ${TAG} already exists, nothing to do"
+      else
+        echo "Creating tag ${TAG}"
+        git config user.email "ci@gitlab"
+        git config user.name "GitLab CI"
+        git tag "${TAG}"
+        if [ -n "${GIT_PUSH_TOKEN}" ]; then
+          PUSH_URL="https://oauth2:${GIT_PUSH_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git"
+        else
+          PUSH_URL="https://gitlab-ci-token:${CI_JOB_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git"
+        fi
+        git push "${PUSH_URL}" "${TAG}" || {
+          echo "Tag push failed: configure GIT_PUSH_TOKEN (Project Access Token with write_repository)"
+          echo "or enable CI_JOB_TOKEN push rights in project settings."
+          exit 1
+        }
+      fi
+
+# Builds the package and publishes it to PyPI whenever a vX.Y.Z tag is pushed.
+# Requires a PYPI_TOKEN CI/CD variable set in the project's GitLab settings.
+publish-to-pypi:
+  stage: publish
+  rules:
+    - if: $CI_COMMIT_TAG =~ /^v\d+\.\d+\.\d+/
+      when: always
+    - when: never
+  script:
+    - rm -rf .uv-cache .venv
+    - echo "Building package"
+    - uv build
+    - echo "Publishing version ${CI_COMMIT_TAG} to PyPI"
+    - uv publish --token "${CI_JOB_TOKEN}"
