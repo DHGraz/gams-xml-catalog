@@ -107,6 +107,11 @@ auto-tag:
         echo "Attempting to push to ${CI_SERVER_HOST}/${CI_PROJECT_PATH} as oauth2 user"
         if git push "${PUSH_URL}" "refs/tags/${TAG}"; then
           echo "Tag ${TAG} pushed successfully"
+          echo "Triggering publish pipeline for tag ${TAG}"
+          curl --request POST \
+            --header "PRIVATE-TOKEN: ${GIT_PUSH_TOKEN}" \
+            "https://${CI_SERVER_HOST}/api/v4/projects/${CI_PROJECT_ID}/pipeline?ref=${TAG}" \
+            || echo "Pipeline trigger request sent (may already be running)"
         else
           echo "Initial tag push failed, re-checking remote tag state"
           if git ls-remote --exit-code --tags origin "refs/tags/${TAG}" >/dev/null; then
