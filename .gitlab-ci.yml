@@ -69,21 +69,21 @@ publish-to-pypi:
   rules:
     - if: $CI_COMMIT_BRANCH == "main" && $CI_PIPELINE_SOURCE != "schedule"
   script:
-    # 1. extract version from pyproject.toml 
-    - VERSION=$(uv pip compile pyproject.toml --quiet | grep -oP '(?<=#  ).*(?==)' || awk -F ' = ' '/^version = / {gsub(/"/, "", $2); print $2; exit}' pyproject.toml)
-    - TAG="v${VERSION}"
-    - echo "Target Version: ${TAG}"
-
-    # 2. Install git
-    - apt-get update
-    - apt-get install -y --no-install-recommends git
-
-    # 3. Build & Publish
-    - uv build
-    - uv publish --token "${PYPI_TOKEN}"
-
-    # 4. Create a Git Tag (Optional, but good for history)
     - |
+      # 1. Extract version from pyproject.toml
+      VERSION=$(uv pip compile pyproject.toml --quiet | grep -oP '(?<=#  ).*(?==)' || awk -F ' = ' '/^version = / {gsub(/"/, "", $2); print $2; exit}' pyproject.toml)
+      TAG="v${VERSION}"
+      echo "Target Version: ${TAG}"
+
+      # 2. Install git
+      apt-get update
+      apt-get install -y --no-install-recommends git
+
+      # 3. Build and publish
+      uv build
+      uv publish --token "${PYPI_TOKEN}"
+
+      # 4. Create a Git tag
       if [ -n "${GIT_PUSH_TOKEN}" ]; then
         git config user.email "ci@gitlab"
         git config user.name "GitLab CI"
