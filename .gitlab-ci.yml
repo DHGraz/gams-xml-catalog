@@ -132,7 +132,7 @@ publish-to-pypi:
   script:
     - rm -rf .uv-cache .venv
     - if [ -z "${PYPI_TOKEN}" ]; then echo "PYPI_TOKEN is missing"; exit 1; fi
-    - echo "Publish context: source=${CI_PIPELINE_SOURCE}, ref=${CI_COMMIT_REF_NAME}, tag=${CI_COMMIT_TAG}"
+    - 'echo "Publish context: source=${CI_PIPELINE_SOURCE}, ref=${CI_COMMIT_REF_NAME}, tag=${CI_COMMIT_TAG}"'
     - VERSION="${CI_COMMIT_TAG#v}"
     - PACKAGE_NAME=$(awk -F ' = ' '/^\[project\]/{in_project=1; next} /^\[/{in_project=0} in_project && /^name = / {gsub(/"/, "", $2); print $2; exit}' pyproject.toml)
     - echo "Checking if ${PACKAGE_NAME} ${VERSION} already exists on PyPI"
