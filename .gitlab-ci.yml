@@ -96,11 +96,13 @@ auto-tag:
         git config user.name "GitLab CI"
         git tag "${TAG}"
 
-        if [ -n "${GIT_PUSH_TOKEN}" ]; then
-          PUSH_URL="https://oauth2:${GIT_PUSH_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git"
-        else
-          PUSH_URL="https://gitlab-ci-token:${CI_JOB_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git"
+        echo "GIT_PUSH_TOKEN available: ${GIT_PUSH_TOKEN:+yes}"
+        if [ -z "${GIT_PUSH_TOKEN}" ]; then
+          echo "GIT_PUSH_TOKEN is missing in this job environment"
+          echo "Check CI/CD variable protection/scope and start a new pipeline (not retry)."
+          exit 1
         fi
+        PUSH_URL="https://oauth2:${GIT_PUSH_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git"
 
         if git push "${PUSH_URL}" "refs/tags/${TAG}"; then
           echo "Tag ${TAG} pushed successfully"
@@ -110,7 +112,6 @@ auto-tag:
             echo "Tag ${TAG} is now present remotely (likely created by another pipeline), continuing"
           else
             echo "Tag push failed: configure GIT_PUSH_TOKEN (Project Access Token with write_repository)"
-            echo "or enable CI_JOB_TOKEN push rights in project settings."
             exit 1
           fi
         fi
