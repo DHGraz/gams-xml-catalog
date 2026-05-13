@@ -83,37 +83,79 @@ auto-tag:
     - VERSION=$(awk -F ' = ' '/^\[project\]/{in_project=1; next} /^\[/{in_project=0} in_project && /^version = / {gsub(/"/, "", $2); print $2; exit}' pyproject.toml)
     - TAG="v${VERSION}"
     - echo "Detected version ${TAG}"
+    - git fetch --tags --prune origin
     - |
-      if git ls-remote --tags origin "refs/tags/${TAG}" | grep -q "${TAG}"; then
-        echo "Tag ${TAG} already exists, nothing to do"
+      # Remove any stale local tag so deleted remote tags can be recreated safely.
+      git tag -d "${TAG}" 2>/dev/null || true
+
+      if git ls-remote --exit-code --tags origin "refs/tags/${TAG}" >/dev/null; then
+        echo "Tag ${TAG} already exists remotely, nothing to do"
       else
         echo "Creating tag ${TAG}"
         git config user.email "ci@gitlab"
         git config user.name "GitLab CI"
         git tag "${TAG}"
+
         if [ -n "${GIT_PUSH_TOKEN}" ]; then
           PUSH_URL="https://oauth2:${GIT_PUSH_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git"
         else
           PUSH_URL="https://gitlab-ci-token:${CI_JOB_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git"
         fi
-        git push "${PUSH_URL}" "${TAG}" || {
-          echo "Tag push failed: configure GIT_PUSH_TOKEN (Project Access Token with write_repository)"
-          echo "or enable CI_JOB_TOKEN push rights in project settings."
-          exit 1
-        }
+
+        if git push "${PUSH_URL}" "refs/tags/${TAG}"; then
+          echo "Tag ${TAG} pushed successfully"
+        else
+          echo "Initial tag push failed, re-checking remote tag state"
+          if git ls-remote --exit-code --tags origin "refs/tags/${TAG}" >/dev/null; then
+            echo "Tag ${TAG} is now present remotely (likely created by another pipeline), continuing"
+          else
+            echo "Tag push failed: configure GIT_PUSH_TOKEN (Project Access Token with write_repository)"
+            echo "or enable CI_JOB_TOKEN push rights in project settings."
+            exit 1
+          fi
+        fi
       fi
 
 # Builds the package and publishes it to PyPI whenever a vX.Y.Z tag is pushed.
 # Requires a PYPI_TOKEN CI/CD variable set in the project's GitLab settings.
 publish-to-pypi:
   stage: publish
+  variables:
+    PYTHON_VERSION: "3.12"
   rules:
     - if: $CI_COMMIT_TAG =~ /^v\d+\.\d+\.\d+/
       when: always
     - when: never
   script:
     - rm -rf .uv-cache .venv
+    - VERSION="${CI_COMMIT_TAG#v}"
+    - PACKAGE_NAME=$(awk -F ' = ' '/^\[project\]/{in_project=1; next} /^\[/{in_project=0} in_project && /^name = / {gsub(/"/, "", $2); print $2; exit}' pyproject.toml)
+    - echo "Checking if ${PACKAGE_NAME} ${VERSION} already exists on PyPI"
+    - |
+      if uv run --python $PYTHON_VERSION python - "$PACKAGE_NAME" "$VERSION" <<'PY'
+      import json
+      import sys
+      import urllib.error
+      import urllib.request
+
+      package_name, version = sys.argv[1], sys.argv[2]
+      url = f"https://pypi.org/pypi/{package_name}/json"
+
+      try:
+          with urllib.request.urlopen(url, timeout=20) as response:
+              data = json.load(response)
+      except urllib.error.HTTPError as exc:
+          if exc.code == 404:
+              sys.exit(1)
+          raise
+
+      sys.exit(0 if version in data.get("releases", {}) else 1)
+      PY
+      then
+        echo "Version ${VERSION} already published on PyPI, skipping publish"
+        exit 0
+      fi
     - echo "Building package"
     - uv build
     - echo "Publishing version ${CI_COMMIT_TAG} to PyPI"
-    - uv publish --token "${CI_JOB_TOKEN}"
+    - uv publish --token "${PYPI_TOKEN}"
