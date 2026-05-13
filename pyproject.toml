@@ -1,6 +1,6 @@
 [project]
 name = "gams-xml-catalog"
-version = "0.6.3"
+version = "0.6.4"
 description = "Python package providing schema files commonly needed in GAMS projects, along with utilities to interact with the catalog."
 readme = "README.md"
 authors = [
