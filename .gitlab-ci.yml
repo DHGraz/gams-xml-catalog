@@ -66,10 +66,6 @@ nightly-pytest:
 publish-to-pypi:
   stage: release
   #image: ghcr.io/astral-sh/uv:latest 
-  steps:
-      - name: Install git
-        run: |
-          
   rules:
     - if: $CI_COMMIT_BRANCH == "main" && $CI_PIPELINE_SOURCE != "schedule"
   script:
