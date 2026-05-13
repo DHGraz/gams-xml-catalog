@@ -80,6 +80,7 @@ auto-tag:
       when: always
     - when: never
   script:
+    - apk add curl
     - VERSION=$(awk -F ' = ' '/^\[project\]/{in_project=1; next} /^\[/{in_project=0} in_project && /^version = / {gsub(/"/, "", $2); print $2; exit}' pyproject.toml)
     - TAG="v${VERSION}"
     - echo "Detected version ${TAG}"
